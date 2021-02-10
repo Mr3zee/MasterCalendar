@@ -1,0 +1,329 @@
+:root {
+    --corner-width: 400px;
+    --corner-text-offset: 30px;
+    --header-height: 70px;
+    --sidebar-width: 345px;
+    --sidebar-offset: 25px;
+    --main-offset: 12px;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.fixed {
+    height: var(--header-height);
+    width: 100%;
+    margin: 0;
+
+    display: flex;
+}
+
+/* HEADER SECTION */
+
+.header-wrapper {
+    position: absolute;
+    width: 100%;
+    height: var(--header-height);
+}
+
+.header {
+    height: 100%;
+    width: 100%;
+
+    background: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    box-shadow: var(--box-shadow);
+}
+
+.header .calendar-name {
+    height: 100%;
+    width: var(--corner-width);
+
+    display: flex;
+    align-items: center;
+
+    background: var(--main-color);
+}
+
+.calendar-name #calendar-name-text {
+    margin: 0 0 0 var(--corner-text-offset);
+
+    color: white;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 26pt;
+}
+
+.header .info {
+    height: 100%;
+    width: 400px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info .info-element {
+    margin: 0;
+    height: 100%;
+    width: 33%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20pt;
+    font-family: "Montserrat", sans-serif;
+    color: var(--main-color);
+}
+
+#list .calendar-list {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: 0;
+
+    background: white;
+
+    box-shadow: var(--box-shadow);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    transition: height .2s;
+}
+
+#list:hover .calendar-list {
+    height: 80px;
+}
+
+#list .list-border {
+    position: absolute;
+    background: var(--second-color);
+    height: 3px;
+    width: 0;
+    top: var(--header-height);
+    left: 0;
+
+    transition: .2s .2s width linear;
+}
+
+#list:hover .list-border {
+    width: 100%;
+    transition-delay: 0s;
+    transition-duration: .2s;
+}
+
+.calendar-list span {
+    opacity: 0;
+    pointer-events: none;
+
+    transition: height .25s .0s,
+                opacity .2s cubic-bezier(.14,1.04,.13,.99);
+}
+
+#list:hover .calendar-list span {
+    opacity: 1;
+    display: block;
+    pointer-events: auto;
+
+    transition: height 0s,
+                opacity .25s cubic-bezier(.87,.12,.65,.16);
+}
+
+.info-element a:link {
+    color: var(--second-color);
+    text-decoration: none;
+}
+
+.info-element a:visited {
+    color: var(--second-color);
+}
+
+.info-element #acc-name {
+    color: var(--second-color);
+}
+
+/* INFO SIDEBAR SECTION */
+
+#info-bar {
+    --button-height: 7vh;
+
+    position: absolute;
+    top: var(--header-height);
+    left: calc(100% - var(--sidebar-width) - var(--sidebar-offset));
+
+    height: calc(100vh - var(--header-height) - 3vh);
+    width: var(--sidebar-width);
+
+    background: white;
+    box-shadow: var(--box-shadow);
+
+    display: flex;
+    flex-direction: column;
+
+    transition: top .35s ease;
+}
+
+#info-bar .table-info-wrapper {
+    width: 100%;
+    height: 93%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-info-wrapper .table-info {
+    width: 92%;
+    height: 95%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.table-info .ti-name {
+    width: 100%;
+    height: 10%;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 23pt;
+    color: var(--main-color);
+}
+
+.table-info .ti-img {
+    width: 100%;
+    height: 35%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ti-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.table-info .ti-main {
+    width: 100%;
+    height: 55%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.ti-main .ti-main-attr {
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 15pt;
+    color: var(--main-color);
+}
+
+.ti-main-attr .ti-main-attr-key {
+    font-weight: bold;
+}
+
+.ti-main-attr .ti-main-attr-value {
+    margin-left: 5px;
+}
+
+#info-bar .show-button {
+    width: 100%;
+    height: var(--button-height);
+    bottom: 0;
+}
+
+.show-button #hide-show-button {
+    --button-hidden: false;
+
+    width: 100%;
+    height: 100%;
+    padding: 0;
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 15pt;
+    color: var(--main-color);
+
+    outline: none;
+    border: none;
+    background: none;
+
+    cursor: pointer;
+
+    transition: color .2s, background-color .2s, opacity .3s;
+}
+
+.show-button:hover #hide-show-button {
+    background: var(--main-color);
+    color: white;
+}
+
+/* MAIN SECTION */
+
+#main {
+    position: absolute;
+
+    width: calc(100% - var(--sidebar-width) - var(--sidebar-offset));
+    height: calc(100% - var(--header-height));
+    top: var(--header-height);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: width .45s ease;
+}
+
+#main .outline {
+    position: absolute;
+    width: 93%;
+    height: 93%;
+
+    outline: 3px solid var(--main-color);
+}
+
+#main #outline1 {
+    margin: var(--main-offset) var(--main-offset) 0 0;
+}
+
+
+#main #outline2 {
+    margin: 0 0 var(--main-offset) var(--main-offset);
+}
+
+#main .tables {
+    position: absolute;
+
+    width: calc(93% - 2 * var(--main-offset));
+    height: calc(93% - 2 * var(--main-offset));
+
+    overflow-y: scroll;
+}
+
+.tables::-webkit-scrollbar {
+    width: 10px;
+}
+
+.tables::-webkit-scrollbar-track {
+    background: white;
+}
+
+.tables::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+}
+

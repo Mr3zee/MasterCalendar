@@ -1,0 +1,284 @@
+:root {
+    --error-transition-duration: .3s;
+    --block-width-login: 400px;
+    --block-width-register: 450px;
+
+    --error-block-offset: 70px;
+    --error-block-width: 350px;
+}
+
+html, body, .body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.body .body-class {
+    transition: margin-left .3s ease-in-out;
+}
+
+#body-login {
+    margin-left: calc(50% - var(--block-width-login) / 2);
+}
+
+#body-reg {
+    margin-left: calc(50% - var(--block-width-register) / 2);
+}
+
+#register {
+    width: 450px;
+    height: 750px;
+}
+
+#login {
+    width: 400px;
+    height: 600px;
+}
+
+#error-block {
+    --error-block-height: 200px;
+    --error-block-header-height: 40px;
+    --error-opacity: 0;
+    --error-text-opacity: 0;
+
+    width: var(--error-block-width);
+    height: var(--error-block-height);
+
+    position: relative;
+
+    margin-left: var(--error-block-offset);
+    opacity: var(--error-opacity);
+
+    transition: all .3s linear .3s;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#error-block .error-header {
+    width: 100%;
+    height: var(--error-block-header-height);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background: var(--bad-color);
+
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 17pt;
+}
+
+.error-header #error-header {
+    margin-left: 10px;
+
+    font-weight: bold;
+}
+
+.error-header #error-name {
+    margin-left: 10px;
+}
+
+#error-block .error-body {
+    width: 100%;
+    height: calc(var(--error-block-height) - var(--error-block-header-height));
+
+    background: white;
+
+    color: var(--bad-color);
+    font-family: "Montserrat", sans-serif;
+    font-size: 15pt;
+
+    display: flex;
+    align-items: center;
+}
+
+.error-body #error-msg {
+    opacity: var(--error-opacity);
+    transition: opacity .15s linear .5s;
+
+    margin: 15px;
+}
+
+#error-block::before {
+    content: " ";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    box-shadow: var(--box-shadow);
+
+    opacity: var(--error-opacity);
+    transition: opacity .3s linear .3s;
+}
+
+.main {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Montserrat", sans-serif;
+
+    transition: height var(--error-transition-duration);
+
+    box-shadow: var(--box-shadow);
+}
+
+.container {
+    height: 95%;
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container #log-head {
+    width: 100%;
+    height: 50%;
+}
+
+.container #reg-head {
+    width: 100%;
+    height: 37%;
+}
+
+.container .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header img {
+    height: 300px;
+    width: 300px;
+}
+
+.container #log-input {
+    width: 100%;
+    height: 40%;
+}
+
+.container #reg-input {
+    width: 100%;
+    height: 56%;
+}
+
+.container .input {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    font-size: 15pt;
+    font-family: "Montserrat", sans-serif;
+}
+
+.input .field {
+    width: 80%;
+    height: 32px;
+
+    margin-top: 13%;
+    margin-bottom: 0;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+.field .form-input, .field .form-label {
+    transition: all .15s, margin-top var(--error-transition-duration);
+
+    margin: 0;
+}
+
+.field .form-input {
+    width: 100%;
+    height: 100%;
+
+    padding-left: .3em;
+
+    border: none;
+
+    box-shadow: 0 0 0 2px var(--main-color);
+
+    font-size: 12pt;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+
+    z-index: 2;
+    background: none;
+}
+
+.field .form-label {
+    position: absolute;
+    z-index: 1;
+}
+
+.field .inside {
+    top: .2em;
+    left: .4em;
+    color: darkgrey;
+    font-size: 15pt;
+}
+
+.field .above {
+    top: -1.4em;
+    left: 0;
+    color: var(--main-color);
+    font-size: 17pt;
+}
+
+.field .form-input:focus {
+    padding-left: .4em;
+
+    outline: none;
+
+    box-shadow: 0 0 1px 3px var(--second-color);
+
+    font-size: 12pt;
+}
+
+.input #button {
+    margin: 6%;
+
+    width: 50%;
+    height: 32px;
+
+    outline: none;
+    border: none;
+    background: none;
+
+    font-size: 17pt;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.container .footer {
+    width: 100%;
+    height: 5%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.footer .footer-text {
+    font-size: 14pt;
+}
+
+#reg-link:link, #reg-link:visited {
+    color: var(--second-color);
+}

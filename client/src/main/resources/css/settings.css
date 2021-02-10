@@ -1,0 +1,314 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main {
+    height: 800px;
+    width: 1200px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    font-family: "Montserrat", sans-serif;
+}
+
+.main #header {
+    height: 90px;
+    width: 1130px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    background: white;
+}
+
+#header .name {
+    height: 100%;
+    width: 300px;
+
+    background: var(--main-color);
+    color: white;
+    font-size: 26pt;
+
+    display: flex;
+    align-items: center;
+}
+
+#header .name span {
+    margin: 0 0 0 30px;
+}
+
+#header .go-back {
+    height: 100%;
+    width: 520px;
+
+    color: var(--main-color);
+    font-size: 20pt;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.go-back a:visited, a:link {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+
+.go-back #logout {
+    color: var(--second-color);
+
+    outline: none;
+    border: none;
+    background: white;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 20pt;
+
+    cursor: pointer;
+}
+
+.main .block {
+    display: flex;
+    flex-direction: column;
+
+    background: white;
+    box-shadow: var(--box-shadow);
+}
+
+.block .prop-name {
+    width: 100%;
+    height: 20%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.prop-name .name-container {
+    --back-color: var(--second-color);
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 20px;
+
+    background: var(--main-color);
+    color: white;
+
+    animation-duration: 3s;
+}
+
+@keyframes colorHeader {
+    from { background: var(--main-color); }
+    15% { background: var(--back-color); }
+    85% { background: var(--back-color); }
+    to { background: var(--main-color); }
+}
+
+.name-container .header-text {
+    overflow: hidden;
+    white-space: nowrap;
+
+    outline: none;
+    border: none;
+    background: none;
+
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 19pt;
+    padding: 0;
+
+    transition: all .7s;
+}
+
+.name-container input {
+    cursor: pointer;
+}
+
+.block .change-block {
+    width: 100%;
+    height: 65%;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.change-block .change-page {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 16pt;
+    font-family: "Montserrat", sans-serif;
+
+    transition: left 1s;
+
+    --webkit-backface-visiblity: hidden;
+    --webkit-perspective: 1000;
+}
+
+.change-page .field-container {
+    width: 85%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.field-container .field {
+    width: 100%;
+    height: 111px;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.field-container #f-password {
+    margin-top: 10px;
+}
+
+.field-container #f-repeat-password {
+    margin-top: 6px;
+}
+
+.field-container #f-delete, #f-confirm-delete {
+    height: 146px;
+}
+
+.field input {
+    height: 33px;
+    width: 100%;
+    margin: 10px 0 0 0;
+
+    border: none;
+    outline: none;
+
+    transition: all .2s;
+
+    font-size: 13pt;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    text-indent: .4em;
+
+    box-shadow: 0 0 0 2px var(--main-color);
+}
+
+.field input::placeholder {
+    font-size: 13pt;
+    font-family: "Montserrat", sans-serif;
+}
+
+.field input:focus::placeholder {
+    color: var(--main-color);
+}
+
+.field input:focus {
+    box-shadow: 0 0 1px 3px var(--second-color);
+}
+
+.field #input-delete:focus, #input-confirm-delete:focus {
+    box-shadow: 0 0 1px 3px var(--bad-color);
+}
+
+.field .caption {
+    margin-top: 7px;
+    font-size: 10pt;
+    color: darkgrey;
+}
+
+#f-delete .caption, #f-confirm-delete .caption {
+    color: var(--bad-color);
+    font-size: 13pt;
+    font-weight: bold;
+}
+
+.block .submit-change {
+    width: 100%;
+    height: 15%;
+
+    cursor: pointer;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all .2s;
+}
+
+.submit-change .submit-button {
+    width: 100%;
+    height: 100%;
+
+    outline: none;
+    border: none;
+    background: none;
+    padding: 0;
+
+    cursor: pointer;
+
+    font-size: 20pt;
+    font-weight: bold;
+    color: var(--main-color);
+
+    transition: opacity .7s;
+}
+
+.block .submit-change:hover {
+    background: var(--second-color);
+}
+
+.block .submit-change:hover .submit-button {
+    color: white;
+}
+
+.main #prop-email {
+    height: 250px;
+    width: 480px;
+}
+
+.main #prop-name {
+    height: 250px;
+    width: 580px;
+}
+
+.main #prop-password {
+    height: 350px;
+    width: 600px;
+}
+
+.main #prop-delete {
+    height: 350px;
+    width: 460px;
+}
+
+#prop-delete .submit-change:hover {
+    background: var(--bad-color);
+}

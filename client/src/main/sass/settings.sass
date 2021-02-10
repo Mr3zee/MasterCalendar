@@ -1,0 +1,78 @@
+@import "root"
+
+html, body
+  margin: 0
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+
+.main
+  height: 800px
+  width: 1200px
+
+  display: flex
+  flex-direction: row
+  justify-content: space-around
+  flex-wrap: wrap
+
+  font-family: $font
+
+.main #header
+  height: 90px
+  width: 1130px
+
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+  background: $back-color
+
+  .name
+    height: 100%
+    width: 300px
+
+    background: $main-color
+    color: $back-color
+    font-size: 26pt
+
+    display: flex
+    align-items: center
+
+    span
+      margin: 0 0 0 30px
+
+  .go-back
+    height: 100%
+    width: 520px
+
+    color: $main-color
+    font-size: 20pt
+
+    display: flex
+    align-items: center
+    justify-content: space-evenly
+
+    a:visited, a:link
+      text-decoration: none
+      color: $main-color
+
+    #logout
+      color: $second-color
+
+
+.main .block
+  display: flex
+  flex-direction: column
+
+  background: white
+  box-shadow: $shadow
+
+  .prop-name
+    width: 100%
+    height: 20%
+
+    display: flex
+    align-items: center
+    flex-direction: row
