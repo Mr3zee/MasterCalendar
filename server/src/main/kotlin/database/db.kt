@@ -228,12 +228,12 @@ class Database {
         return id
     }
 
-    private fun intSetter(ind: Int): (Int?) -> (PreparedStatement.() -> Unit) {
-        return { it?.let { value -> { setInt(ind, value) } } ?: { setNull(ind, Types.INTEGER) } }
+    private fun intSetter(position: Int): (Int?) -> (PreparedStatement.() -> Unit) {
+        return { it?.let { value -> { setInt(position, value) } } ?: { setNull(position, Types.INTEGER) } }
     }
 
-    private fun stringSetter(ind: Int): (String?) -> (PreparedStatement.() -> Unit) {
-        return { it?.let { value -> { setString(ind, value) } } ?: { setNull(ind, Types.VARCHAR) } }
+    private fun stringSetter(position: Int): (String?) -> (PreparedStatement.() -> Unit) {
+        return { it?.let { value -> { setString(position, value) } } ?: { setNull(position, Types.VARCHAR) } }
     }
 
     private fun setAttr(
@@ -283,7 +283,7 @@ class Database {
         setter: PreparedStatement.() -> Unit
     ): ResultSet {
         checkValidFields(table, attr to false)
-        val stmt = conn.prepareStatement("SELECT * FROM $table WHERE $attr = ?;")
+        val stmt = conn.prepareStatement("SELECT * FROM $table WHERE $attr = ? ;")
         stmt.setter()
         return stmt.executeQuery()
     }
@@ -317,7 +317,7 @@ class Database {
           field: String
         ->
         checkValidFields(table, byAttr to true, field to false)
-        selectByField(table, byAttr, setter).apply { next() }.run { if (!isClosed) getObject(field) else null }
+        selectByField(table, byAttr, setter).run { if (next()) getObject(field) else null }
     }
 
     private fun <T> getFromUser(

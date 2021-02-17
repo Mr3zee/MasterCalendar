@@ -14,9 +14,8 @@ class Register : AbstractHTMLPage(
                 div("main") {
                     id = "register"
                     div("container") {
-                        a(classes = "header") {
+                        div(classes = "header") {
                             id = "reg-head"
-                            href = "/"
                             img {
                                 src = "/images/logo.jpg"
                                 alt = "Login"

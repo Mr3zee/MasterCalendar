@@ -18,9 +18,8 @@ class Login : AbstractHTMLPage(
                 div("main") {
                     id = "login"
                     div("container") {
-                        a(classes = "header") {
+                        div(classes = "header") {
                             id = "log-head"
-                            href = "/"
                             img {
                                 src = "/images/logo.jpg"
                                 alt = "Login"
