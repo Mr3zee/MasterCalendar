@@ -14,13 +14,11 @@ import java.sql.*
 
 // TODO: 10.12.2020 optimize db queries
 
-// TODO: 16.12.2020 fix delete account/log out
-
 val db: Database by lazy { Database() }
 
 const val USER_TABLE = "users"
 
-// pair name to is unique
+// pair name to (is unique)
 val USER_ATTRS = hashSetOf(
     "id" to true,
     "name" to true,
@@ -283,7 +281,7 @@ class Database {
         setter: PreparedStatement.() -> Unit
     ): ResultSet {
         checkValidFields(table, attr to false)
-        val stmt = conn.prepareStatement("SELECT * FROM $table WHERE $attr = ? ;")
+        val stmt = conn.prepareStatement("SELECT * FROM $table WHERE $attr = ?;")
         stmt.setter()
         return stmt.executeQuery()
     }

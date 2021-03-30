@@ -2,17 +2,11 @@
 
 ## Description
 
-This is my second year ITMO University project, that has been done during "Kotlin Client-Server 2020" course, so it is coded entirely on Kotlin programming language, Kotlin/JS for the Client side and Kotlin/JVM  for the Server. 
+This is my second year ITMO University project, that has been done during "Kotlin Client-Server 2020" course, so it is coded entirely on **Kotlin** programming language, *Kotlin/JS* for the Client side and *Kotlin/JVM*  for the Server. 
 
-To run project you need to clone the repository:
+Current State - in development (alpha version)
 
-`git clone https://gitlab.com/Mr3zee/MasterCalendar.git `
-
-and run Gradle:
-
-`./gradlew :server:run`
-
-#### About App
+#### About App (On release)
 
 This is a web calendar service that allows users to create their own calendars of two types:
 
